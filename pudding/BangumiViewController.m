@@ -8,16 +8,47 @@
 
 #import "BangumiViewController.h"
 #import "UIViewController+MMDrawerController.h"
+#import "WEICollectionViewCell.h"
 
-@interface BangumiViewController ()
-
+@interface BangumiViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
+{
+    UICollectionView *_collectionView;
+}
 @end
 
 @implementation BangumiViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    [self collectionViewInit];
+}
+
+
+- (void)collectionViewInit{
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.minimumLineSpacing = 10;
+    flowLayout.minimumInteritemSpacing = 10;
+    flowLayout.itemSize = CGSizeMake(80,100);
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    flowLayout.sectionInset = UIEdgeInsetsMake(74, 10, 60, 10);
+    
+    _collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    [_collectionView registerClass:[WEICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [self.view addSubview:_collectionView];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 18;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    WEICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    cell.imageView.image = [[UIImage imageNamed:@"anime_btn_favorite_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    cell.maskLabel.text = @"test";
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

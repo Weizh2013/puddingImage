@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1874C2151BBAAF59004298F0 /* WEICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1874C2141BBAAF59004298F0 /* WEICollectionViewCell.m */; };
 		306018FA1BB774B900347005 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 306018F91BB774B900347005 /* main.m */; };
 		306018FD1BB774B900347005 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 306018FC1BB774B900347005 /* AppDelegate.m */; };
 		306019001BB774B900347005 /* pudding.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 306018FE1BB774B900347005 /* pudding.xcdatamodeld */; };
@@ -583,6 +584,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1874C2131BBAAF59004298F0 /* WEICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEICollectionViewCell.h; sourceTree = "<group>"; };
+		1874C2141BBAAF59004298F0 /* WEICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEICollectionViewCell.m; sourceTree = "<group>"; };
 		306018F41BB774B900347005 /* pudding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pudding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		306018F81BB774B900347005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		306018F91BB774B900347005 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1318,6 +1321,8 @@
 				30F9BCFE1BB8178F00F3DE2A /* WEILeftHeaderView.m */,
 				306020EB1BB800F700347005 /* LeftTableViewCell.h */,
 				306020EC1BB800F700347005 /* LeftTableViewCell.m */,
+				1874C2131BBAAF59004298F0 /* WEICollectionViewCell.h */,
+				1874C2141BBAAF59004298F0 /* WEICollectionViewCell.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -2600,6 +2605,7 @@
 				3060209C1BB77CBB00347005 /* UIImage+MultiFormat.m in Sources */,
 				306020841BB77CBB00347005 /* MASConstraint.m in Sources */,
 				306020941BB77CBB00347005 /* SDWebImageCompat.m in Sources */,
+				1874C2151BBAAF59004298F0 /* WEICollectionViewCell.m in Sources */,
 				306020861BB77CBB00347005 /* MASLayoutConstraint.m in Sources */,
 				3060208E1BB77CBB00347005 /* MMDrawerController.m in Sources */,
 				306020E11BB7A68600347005 /* WEITitleView.m in Sources */,

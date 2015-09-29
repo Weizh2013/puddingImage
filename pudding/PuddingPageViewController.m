@@ -76,7 +76,7 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed{
     _currentPage = [_pageViews indexOfObject:[pageViewController.viewControllers firstObject]];
     _titleView.selectIndex = _currentPage;
-//    NSLog(@"%ld",_currentPage);
+
 }
 
 #pragma mark view did load
@@ -97,7 +97,6 @@
     [_titleView addTarget:self action:@selector(didTitleViewChanged:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = _titleView;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
