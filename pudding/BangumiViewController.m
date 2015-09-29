@@ -11,6 +11,7 @@
 #import "WEICollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "JSONModel.h"
+#import "DataManager.h"
 
 @interface BangumiViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
 {
@@ -56,9 +57,13 @@
 }
 
 - (void)parseData{
-    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"category" ofType:@"json"]] options:NSJSONReadingAllowFragments error:nil];
-    _modelArray = [JSONModel modelsArrayWithjsonArray:jsonArray];
-    [_collectionView reloadData];
+//    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"category" ofType:@"json"]] options:NSJSONReadingAllowFragments error:nil];
+//    _modelArray = [JSONModel modelsArrayWithjsonArray:jsonArray];
+//    [_collectionView reloadData];
+    
+    DataManager *manager = [DataManager shareManagerComplementHandel:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

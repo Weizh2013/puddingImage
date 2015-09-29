@@ -570,6 +570,7 @@
 		306020E11BB7A68600347005 /* WEITitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 306020E01BB7A68600347005 /* WEITitleView.m */; };
 		306020E41BB7A69A00347005 /* WEIWhiteRoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 306020E31BB7A69A00347005 /* WEIWhiteRoundView.m */; };
 		306020ED1BB800F700347005 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 306020EC1BB800F700347005 /* LeftTableViewCell.m */; };
+		307A57171BBAE8D400C916B0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 307A57161BBAE8D400C916B0 /* DataManager.m */; };
 		30F9BCFF1BB8178F00F3DE2A /* WEILeftFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F9BCFC1BB8178F00F3DE2A /* WEILeftFooterView.m */; };
 		30F9BD001BB8178F00F3DE2A /* WEILeftHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F9BCFE1BB8178F00F3DE2A /* WEILeftHeaderView.m */; };
 		30F9BD041BB81D5800F3DE2A /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F9BD031BB81D5800F3DE2A /* UIImage+Additions.m */; };
@@ -1200,6 +1201,8 @@
 		306020E31BB7A69A00347005 /* WEIWhiteRoundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEIWhiteRoundView.m; sourceTree = "<group>"; };
 		306020EB1BB800F700347005 /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
 		306020EC1BB800F700347005 /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
+		307A57151BBAE8D400C916B0 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		307A57161BBAE8D400C916B0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		30F9BCFB1BB8178F00F3DE2A /* WEILeftFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEILeftFooterView.h; sourceTree = "<group>"; };
 		30F9BCFC1BB8178F00F3DE2A /* WEILeftFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEILeftFooterView.m; sourceTree = "<group>"; };
 		30F9BCFD1BB8178F00F3DE2A /* WEILeftHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEILeftHeaderView.h; sourceTree = "<group>"; };
@@ -1257,6 +1260,7 @@
 		306018F61BB774B900347005 /* pudding */ = {
 			isa = PBXGroup;
 			children = (
+				307A57141BBAE8C500C916B0 /* DataManager */,
 				1874C2161BBAB877004298F0 /* Model */,
 				30601C321BB779D800347005 /* icons */,
 				306019251BB7752A00347005 /* CustomViews */,
@@ -1958,6 +1962,15 @@
 			path = library/SDWebImage;
 			sourceTree = "<group>";
 		};
+		307A57141BBAE8C500C916B0 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				307A57151BBAE8D400C916B0 /* DataManager.h */,
+				307A57161BBAE8D400C916B0 /* DataManager.m */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
 		30F9BD011BB81D4200F3DE2A /* ImageAdd */ = {
 			isa = PBXGroup;
 			children = (
@@ -2595,6 +2608,7 @@
 				3060209E1BB77CBB00347005 /* UIImageView+HighlightedWebCache.m in Sources */,
 				306020881BB77CBB00347005 /* MASViewConstraint.m in Sources */,
 				306020951BB77CBB00347005 /* SDWebImageDecoder.m in Sources */,
+				307A57171BBAE8D400C916B0 /* DataManager.m in Sources */,
 				306020E41BB7A69A00347005 /* WEIWhiteRoundView.m in Sources */,
 				306020921BB77CBB00347005 /* NSData+ImageContentType.m in Sources */,
 				306020ED1BB800F700347005 /* LeftTableViewCell.m in Sources */,
