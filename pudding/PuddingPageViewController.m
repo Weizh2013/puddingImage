@@ -106,13 +106,8 @@
 
 #pragma mark button clicked evens
 - (void)didAvatarClicked:(id)sender{
-//    NSLog(@"%s",__func__);
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
-//        NSLog(@"open:%@",finished?@"YES":@"NO");
     }];
-//    [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
-//        NSLog(@"open:%@",finished?@"YES":@"NO");
-//    }];
 }
 
 - (void)didTitleViewChanged:(WEITitleView *)sender{
