@@ -12,11 +12,13 @@
 #import "UIImageView+WebCache.h"
 #import "JSONModel.h"
 #import "DataManager.h"
+#import "AFNetworking.h"
+#import "DIENotificationConfig.h"
 
 @interface BangumiViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
 {
     UICollectionView *_collectionView;
-    NSArray *_modelArray;
+//    NSArray *_modelArray;
 }
 @end
 
@@ -25,9 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self collectionViewInit];
-    [self parseData];
+    DIEAddObserver(self, @selector(didUpdate:), kDIECategoryUpdateNotif, nil);
+    [[DataManager sharedManager]updateCategory];
 }
 
+- (void)didUpdate:(id)sender{
+    [_collectionView reloadData];
+}
 
 - (void)collectionViewInit{
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -46,24 +52,18 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _modelArray.count;
+//    return _modelArray.count;
+    return [[DataManager sharedManager].categoriesArray count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     WEICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    [cell.imageView sd_setImageWithURL:[_modelArray[indexPath.item] url]];
-    cell.maskLabel.text = [_modelArray[indexPath.item] name];
-    return cell;
-}
-
-- (void)parseData{
-//    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"category" ofType:@"json"]] options:NSJSONReadingAllowFragments error:nil];
-//    _modelArray = [JSONModel modelsArrayWithjsonArray:jsonArray];
-//    [_collectionView reloadData];
+//    [cell.imageView sd_setImageWithURL:[_modelArray[indexPath.item] url]];
+    [cell.imageView sd_setImageWithURL:[[DataManager sharedManager].categoriesArray[indexPath.item] url]];
+    //    cell.maskLabel.text = [_modelArray[indexPath.item] name];
     
-    DataManager *manager = [DataManager shareManagerComplementHandel:^{
-        
-    }];
+    cell.maskLabel.text = [[DataManager sharedManager].categoriesArray[indexPath.item] name];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

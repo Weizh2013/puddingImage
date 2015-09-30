@@ -13,10 +13,9 @@ typedef void(^HANDLETYPE)();
 
 @interface DataManager : NSObject
 
-@property (nonatomic,strong) NSArray *dataArray;
-@property (nonatomic,copy) HANDLETYPE handle;
+@property (nonatomic,strong,readonly) NSMutableArray *categoriesArray;
 
-+ (void)initialize;
-+ (instancetype)shareManagerComplementHandel:(HANDLETYPE)handle;
++ (instancetype)sharedManager;
+- (void)updateCategory;
 
 @end

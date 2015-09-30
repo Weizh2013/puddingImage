@@ -7,29 +7,53 @@
 //
 
 #import "DataManager.h"
+#import "NetWorkManager.h"
+#import "DIENotificationConfig.h"
+#import "JSONModel.h"
 
 static DataManager *instant = nil;
+
+@interface DataManager()
+{
+    NSUInteger _categoryOffset;
+    NSUInteger _categoryLimit;
+}
+
+@end
+
 @implementation DataManager
 
-+ (void)initialize{
-    if (instant == nil) {
-        instant = [self new];
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://pudding.cc/api/v1/category?offset=0&limit=18&apiKey=yuki_android&version=2.6.5&timestamp=1442739762&auth1=76d6029863f2c0c3081e9dea9b67d0ee"]] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            if (error == nil) {
-                instant.handle();
-                NSLog(@"length:%ld",data.length);
-            }else {
-                NSLog(@"error:%@",error);
-            }
-        }];
-        
-        [dataTask resume];
+- (instancetype)init{
+    if (self = [super init]) {
+        _categoryOffset = 0;
+        _categoryLimit = 20;
+        _categoriesArray = [NSMutableArray array];
     }
+    return self;
 }
 
-+ (instancetype)shareManagerComplementHandel:(HANDLETYPE)handle{
-    instant.handle = handle;
++ (instancetype)sharedManager{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instant = [[DataManager alloc]init];
+    });
     return instant;
 }
+
+- (void)updateCategory {
+    [NetworkManager categoryWithOffset:_categoryOffset limit:_categoryLimit completion:^(id responseObject, DIEError *error) {
+        NSArray *array = [self parseDataWith:responseObject];
+        [_categoriesArray removeAllObjects];
+        [_categoriesArray addObjectsFromArray:array];
+        
+        DIEPost(kDIECategoryUpdateNotif, nil);
+    }];
+    
+}
+
+- (NSArray *)parseDataWith:(id)data{
+    NSArray *array = [JSONModel modelsArrayWithjsonArray:data];
+    return array;
+}
+
 @end
